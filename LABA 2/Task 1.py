@@ -14,13 +14,13 @@ class Student:
     def update_number_group(self, new_number_group):
         self.number_group = new_number_group
 
-    def display_info(self):
+    def info(self):
         return (f"Фамилия: {self.surname}, Дата рождения: {self.date_of_birth}, "
                 f"Номер группы: {self.number_group}, Успеваемость: {self.progress}")
 
 def info_all_students(students):
     for student in students:
-        print(student.display_info())
+        print(student.info())
 
 students = [
     Student("Хен", "10.10.2007", "Группа 2", [5, 5, 5, 5, 5]),
@@ -37,11 +37,9 @@ while True:
             student_index = int(input("\nВведите номер студента для изменения (или 0 для выхода): ")) - 1
             if student_index == -1:
                 break
-            if student_index < 0 or student_index >= len(students):
-                print("Неверный номер студента.")
 
             student = students[student_index]
-            print(f"\nВыбран студент: {student.display_info()}")
+            print(f"\nВыбран студент: {student.info()}")
 
             print("\nЧто вы хотите изменить?\n1. Фамилию\n2. Дату рождения\n3. Номер группы")
 
