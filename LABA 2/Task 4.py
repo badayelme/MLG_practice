@@ -1,15 +1,16 @@
 class Counter:
     def __init__(self, value=0):
-        self.value = value
+        self._value = value
 
     def addition(self):
-        self.value += 1
+        self._value += 1
 
     def decrease(self):
-        self.value -= 1
+        self._value -= 1
 
-    def info_counter(self):
-        return self.value
+    @property
+    def value_info(self):
+        return self._value
 
 first_counter = int(input("Введите начало счетчика (0 = по умолчанию): "))
 if first_counter == 0:
@@ -26,6 +27,6 @@ while True:
         counter.decrease()
         print("Счетчик уменьшен на 1")
     elif choice == 3:
-        print(f"Счетчик: {counter.info_counter()}")
+        print(f"Счетчик: {counter.value_info}")
     elif choice == 4:
         break
