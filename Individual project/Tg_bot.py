@@ -2,12 +2,7 @@ import telebot
 from openai import OpenAI, RateLimitError
 import requests
 from deep_translator import GoogleTranslator
-
-TOKEN = '8100170154:AAHexkemYGX5tgMgYYSZixhOWoVizeYMrfw'
-AI_TOKEN = "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"
-WEATHER_API = 'f6a177e84e143bb2b78a80dbe52a3ec0'
-API_CAT = 'live_F4Q42WYBi2st1nvfY4wFtvzpZkS7Hv0iWeRI1Nk7BPSuES5bi6BuhNhavxPRBWBz'
-API_GIF = 'PiF27yRclZlo1mo54ayCQtq9UoN4d6H5'
+from API import TOKEN, AI_TOKEN, WEATHER_API, API_CAT, API_GIF
 
 bot = telebot.TeleBot(TOKEN)
 
