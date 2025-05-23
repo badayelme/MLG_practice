@@ -1,36 +1,35 @@
 class Calculation:
     def __init__(self):
-        self._calculationLine = ""
+        self.calculationLine = ""
 
-    def SetCalculationLine(self, new_calculationLine):
-        self._calculationLine = new_calculationLine
+    def SetCalculationLine(self, value):
+        self.calculationLine = value
 
-    def SetLastSymbolCalculationLine(self, symbol):
-        self._calculationLine += symbol
+    def SetlastSymbolCalculationLine(self, symbol):
+        self.calculationLine += symbol
 
     def GetCalculationLine(self):
-        return self._calculationLine
+        return self.calculationLine
 
     def GetLastSymbol(self):
-            return self._calculationLine[-1]
+        return self.calculationLine[-1]
 
     def DeleteLastSymbol(self):
-        calculation_list = list(self._calculationLine)
-        calculation_list.pop()
-        self._calculationLine = ''.join(calculation_list)
+        self.calculationLine = self.calculationLine[:-1]
 
-calculation = Calculation()
+calc = Calculation()
 
-calculation.SetCalculationLine("10-5")
-print(calculation.GetCalculationLine())
-
-calculation.SetLastSymbolCalculationLine("=")
-print(calculation.GetCalculationLine())
-
-calculation.SetLastSymbolCalculationLine("5")
-print(calculation.GetCalculationLine())
-
-print(calculation.GetLastSymbol())
-
-calculation.DeleteLastSymbol()
-print(calculation.GetCalculationLine())
+while True:
+    choice = input("1 - Ввести выражение, 2 - Ввести символ, 3 - Удалить последний символ, 4 - Вывести выражение, 5 - Выйти")
+    if choice == "1":
+        exp = input("Ввести выражение: ")
+        calc.SetCalculationLine(exp)
+    elif choice == "2":
+        symbol = input("Ввести символ: ")
+        calc.SetlastSymbolCalculationLine(symbol)
+    elif choice == "3":
+        calc.DeleteLastSymbol()
+    elif choice == "4":
+        print("Выражение:", calc.GetCalculationLine())
+    elif choice == "5":
+        break
