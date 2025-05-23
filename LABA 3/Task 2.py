@@ -8,16 +8,20 @@ class Worker:
     def GetSalary(self):
         return self._rate * self._days
 
-    def get_name(self):
+    @property
+    def name(self):
         return self._name
 
-    def get_surname(self):
+    @property
+    def surname(self):
         return self._surname
 
-    def get_rate(self):
+    @property
+    def rate(self):
         return self._rate
 
-    def get_days(self):
+    @property
+    def days(self):
         return self._days
 
 workers = []
@@ -33,12 +37,12 @@ while True:
     elif choice == 2:
         print("Список сотрудников:")
         for i in range(len(workers)):
-            print(f"{i + 1}. {workers[i].get_name()} {workers[i].get_surname()}")
+            print(f"{i + 1}. {workers[i].name} {workers[i].surname}")
             number = int(input("Номер сотрудника: ")) - 1
             print(f"Зарплата: {workers[number].GetSalary()}")
     elif choice == 3:
         print("Список сотрудников:")
         for i in range(len(workers)):
-            print(f"{i + 1}. {workers[i].get_name()} {workers[i].get_surname()} {workers[i].get_rate()} {workers[i].get_days()}")
+            print(f"{i + 1}. {workers[i].name} {workers[i].surname} {workers[i].rate} {workers[i].days}")
     elif choice == 4:
         break
